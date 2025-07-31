@@ -2,9 +2,7 @@
 #
 #
 ricename=townbreeze
-rm -rf ~/.config/hypr
-mv Pictures ~/
-mv dotconfig/* ~/.config/
+
 
 echo Please enter your root/sudo password
 read -s varpw
@@ -32,7 +30,9 @@ sed -i -e "s|Virtual-1|$monname|g" dotconfig/hypr/hyprland.conf
 sed -i -e "s|1920x1080|$monres|g" dotconfig/hypr/hyprland.conf
 sed -i -e "s|<user>|$USER|g" hyprlockgetty
 sed -i -e "s|enp1s0|$actconn|g" dotconfig/waybar/modules.jsonc
-
+rm -rf ~/.config/hypr
+mv Pictures ~/
+mv dotconfig/* ~/.config/
 zshtext=$(cat hyprlockzsh)
 gettytext=$(cat hyprlockgetty)
 
