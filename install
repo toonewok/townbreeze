@@ -2,7 +2,7 @@
 #
 #
 ricename=townbreeze
-
+rm ~/.config/hypr/hyprland.conf
 mv Pictures ~/
 mv dotconfig/* ~/.config/
 
