@@ -3,12 +3,15 @@
 #
 ricename=townbreeze
 
+mv Pictures ~/
+mv dotconfig/* ~/.config/
+
 echo Please enter your root/sudo password
 read -s varpw
 
 echo "$varpw" | sudo -S pacman -Syy
 
-echo "$varpw" | sudo -S pacman -S --noconfirm --needed fastfetch hyprlock hyprpaper nvim rofi waybar zsh nwg-look firefox nemo pulseaudio pavucontrol otf-commit-mono-nerd spotify-launcher python-gobject keepassxc swayidle alacritty nodejs
+echo "$varpw" | sudo -S pacman -S --noconfirm --needed fastfetch hyprlock hyprpaper nvim rofi waybar zsh nwg-look firefox nemo pulseaudio pavucontrol otf-commit-mono-nerd spotify-launcher python-gobject keepassxc swayidle alacritty
 
 
 RUNZSH=no CHSH=no KEEPZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -32,6 +35,8 @@ sed -i -e "s|enp1s0|$actconn|g" dotconfig/waybar/modules.jsonc
 
 zshtext=$(cat hyprlockzsh)
 gettytext=$(cat hyprlockgetty)
+
+
 
 
 #attempting to setup YAY
