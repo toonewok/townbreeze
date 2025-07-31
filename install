@@ -1,0 +1,74 @@
+#!/bin/bash
+#
+#
+ricename=townbreeze
+
+echo Please enter your root/sudo password
+read -s varpw
+
+echo "$varpw" | sudo -S pacman -Syy
+
+echo "$varpw" | sudo -S pacman -S --noconfirm --needed fastfetch hyprlock hyprpaper nvim rofi waybar zsh nwg-look firefox nemo pulseaudio pavucontrol otf-commit-mono-nerd spotify-launcher python-gobject keepassxc swayidle alacritty nodejs
+
+
+RUNZSH=no CHSH=no KEEPZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+echo "$varpw" | sudo -S chsh -s "$(which zsh)" "$USER"
+
+
+#this will attempt to determine the display being used and set it accordingly
+#in hyprland.conf and hyprpaper.conf
+monname=$(hyprctl monitors all | sed '1!d' | grep Monitor | cut -d ' ' -f 2)
+monres=$(hyprctl monitors all | sed '2!d' | cut -d ' ' -f 1)
+monres=$(echo "$monres"| awk '{print $1}')
+actconn=$(ip addr | awk '/state UP/ {print $2}' | sed '1!d' | cut -d ':' -f 1)
+
+sed -i -e "s|Virtual-1|$monname|g" dotconfig/hypr/hyprpaper.conf
+sed -i -e "s|Virtual-1|$monname|g" dotconfig/waybar/config.jsonc
+sed -i -e "s|Virtual-1|$monname|g" dotconfig/waybar/modules.jsonc
+sed -i -e "s|Virtual-1|$monname|g" dotconfig/hypr/hyprland.conf
+sed -i -e "s|1920x1080|$monres|g" dotconfig/hypr/hyprland.conf
+sed -i -e "s|<user>|$USER|g" hyprlockgetty
+sed -i -e "s|enp1s0|$actconn|g" dotconfig/waybar/modules.jsonc
+
+zshtext=$(cat hyprlockzsh)
+gettytext=$(cat hyprlockgetty)
+
+
+#attempting to setup YAY
+cd ~/
+git clone https://aur.archlinux.org/yay-bin.git && cd yay-bin && makepkg -s --noconfirm && echo "$varpw" | sudo -S pacman -U *.pkg.tar.zst --noconfirm
+
+cd ~/
+rm -rf ~/yay-bin
+
+#installs vesktop
+echo "$varpw" | yay -S --noconfirm --needed Vesktop
+#installs neovim plugins
+nvim +'PlugInstall --sync' +qa
+
+echo "Would like to have the system boot directly to hypr?(y/n)"
+read locktog
+
+if [ "$locktog" = "y" ]; then
+
+	echo "$varpw" | sudo -S systemctl enable getty@tty1
+	echo "$varpw" | sudo -S mkdir -p /etc/systemd/system/getty@tty1.service.d
+	echo "$varpw" | sudo touch /etc/systemd/system/getty@tty1.service.d/override.conf
+	echo "$varpw" | sudo -S tee /etc/systemd/system/getty@tty1.service.d/override.conf >/dev/null <<< "$gettytext"
+	cp $ricename/.zshrc ~/
+	echo "$zshtext" >> ~/.zshrc
+	echo "$varpw" | sudo -S pacman -R sddm vim dolphin kitty --noconfirm
+	rm -rf ~/$ricename
+	echo "done...system rebooting in 5 seconds"
+	sleep 5
+	echo "$varpw" | sudo -S reboot
+
+else
+
+	echo done....check ~/post_install for instructions on how to bypass default login screen, the system will now reboot in 5 seconds
+	sleep 5
+	echo "$varpw" | sudo -S reboot
+
+fi
+
+#echo done

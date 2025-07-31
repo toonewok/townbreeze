@@ -1,0 +1,87 @@
+[
+// July 30, 2025
+// setup for 'townbreeze'
+
+//--------------------------------------------
+// main monitor bar options
+//--------------------------------------------
+
+{
+	"include": "~/.config/waybar/modules.jsonc",
+	"output":"Virtual-1",
+	//"layer": "top",
+	"position": "top",
+	"height": 34,
+	"spacing": 0,
+	"margin-top": 1,
+	"margin-left": 5,
+	"margin-right":5,
+	"margin-bottom": 0,
+
+//--------------------------------------------
+// module layout
+//--------------------------------------------
+	"modules-left":
+	[
+		"custom/rofisearch",
+		//"group/media",
+		"group/group-soft",
+	//	"custom/filebrowser",
+	//	"custom/firefox",
+		"hyprland/window"
+	],
+	"modules-center":
+	[
+		"hyprland/workspaces"
+	],
+	"modules-right":
+	[
+		"battery",
+		"pulseaudio",
+		"network",
+		"clock",
+		"group/group-pwr"
+	],
+	"group/group-soft":
+	{
+		"orientation":"horizontal",
+		"modules":[
+			"custom/filebrowser",
+			"custom/firefox"
+		]
+	},
+	"group/media":
+	{
+		"orientation":"horizontal",
+		"drawer": {
+		"transition-duration": 500,
+		"children-class": "not-power",
+		"transition-left-to-right": false
+		},
+		
+		"modules":[
+			"custom/spotifylogo",
+			"custom/pp",
+			"custom/prev",
+			"custom/next",
+			"custom/spotify"
+		]
+	},
+
+
+
+	"group/group-pwr":
+	{
+		"orientation": "inherit",
+		"drawer": {
+			"transition-duration": 500,
+			"children-class": "not-power",
+			"transition-left-to-right": false
+			  },
+	"modules":["custom/power","custom/lock","custom/reboot"]
+	}
+
+
+
+}
+]

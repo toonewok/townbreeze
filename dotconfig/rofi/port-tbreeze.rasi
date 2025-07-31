@@ -1,0 +1,22 @@
+/****
+Color file
+****/
+
+* {
+	font: "CommitMono Nerd Font Mono 18";
+	fg0: #bad1dc;
+	bg0trans:#1b1b1bCC ;
+	bg0: #1b1b1b;
+	bg1: #171819;
+	sel: #64bb39;
+	act: #bb9af7;
+	accent: #64bb39;
+	bg-img: url("~/.config/rofi/wall.jpg", height);
+
+	debug: #F49999;
+
+
+
+
+}
+@import "list.rasi"

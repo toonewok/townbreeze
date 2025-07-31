@@ -1,0 +1,132 @@
+* {
+	
+	font-family: "CommitMono Nerd Font Mono";
+	border: none;
+	border-radius: 0px;
+}
+
+tooltip {
+	font-family: "CommitMono Nerd Font Mono";
+	border-radius: 15px;
+	background: rgba(27,27,27,0.65);
+}
+
+window#waybar{
+	background-color: rgba(0,0,0,0.6);
+	background: transparent;
+	transition-property: background-color;
+	transition-duration: .5s;
+}
+
+#workspaces {
+	background: rgba(27,27,27,0.65);
+	margin: 2px 1px 3px 1px;
+	padding: 0px 1px;
+	border-radius: 15px;
+	font-weight: bold;
+	font-style: normal;
+	opacity: 0.8;
+	font-size: 16px;
+}
+
+#workspaces button {
+	padding: 0px 5px;
+	margin: 4px 3px;
+	border-radius: 15px;
+	border: 0px;
+	background: rgba(27,27,27,0.9);
+	color: rgba(216,230,237,0.8);
+	transition: all 0.3s ease-in-out;
+}
+
+#workspaces button.active {
+	background: rgba(216,230,237,0.8);
+	color: rgba(27,27,27,0.8);
+	border-radius: 15px;
+	min-width: 40px;
+	transition: all 0.3s ease-in-out;
+}
+
+#workspaces button:hover {
+	background: rgba(27,27,27,0.8);
+	color: rgba(100,187,57,0.8);
+	border-radius: 15px;
+}
+
+#window {
+	background: rgba(27,27,27,0.6);
+	margin: 2px 3px 3px 3px;
+	padding: 0px 10px;
+	border-radius: 15px;
+	font-weight: normal;
+	font-style: normal;
+	opacity: 0.8;
+	font-size: 16px;
+
+}
+
+window#waybar.empty #window {
+	background-color:transparent;
+}
+
+#clock,
+#network,
+#pulseaudio,
+#battery {
+	background: rgba(27,27,27,0.6);
+	margin: 2px 3px 3px 3px;
+	padding: 0px 10px;
+	border-radius: 15px;
+	font-weight: normal;
+	font-style: normal;
+	opacity: 0.8;
+	
+}
+#clock{
+	font-size: 16px;
+}
+
+#network,
+#pulseaudio {
+	font-size: 24px;
+}
+#group-pwr {
+	font-size: 24px;
+	margin: 2px 3px 3px 3px;
+	padding: 0px 10px;
+	background: rgba(27,27,27,0.6);
+	border-radius: 15px;
+	font-weight: bold;
+	font-style: normal;
+	opacity: 0.8;
+}
+#custom-power,
+#custom-lock,
+#custom-reboot {
+	margin: 0px 3px;
+}
+#group-soft {
+	background: rgba(27,27,27,0.6);
+	margin: 2px 3px 3px 3px;
+	padding: 0px 10px;
+	border-radius: 15px;
+	font-weight: normal;
+	font-style: normal;
+	opacity: 0.8;
+	font-size: 24px;
+}
+#custom-firefox,
+#custom-filebrowser {
+	margin: 0px 3px;
+}
+
+#custom-rofisearch {
+	background: rgba(27,27,27,0.6);
+	border-radius: 15px;
+	font-weight: normal;
+	font-style: normal;
+	opacity: 0.8;
+	font-size: 24px;
+	margin: 2px 3px 3px 3px;
+	padding: 0px 10px;
+}
