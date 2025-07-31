@@ -48,6 +48,9 @@ rm -rf ~/yay-bin
 
 #installs vesktop
 echo "$varpw" | yay -S --noconfirm --needed Vesktop
+
+#installs Bibata
+echo "$varpw" | yay -S --noconfirm --needed bibata-cursor-theme
 #installs neovim plugins
 nvim +'PlugInstall --sync' +qa
 
