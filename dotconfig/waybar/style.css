@@ -3,7 +3,6 @@
 	font-family: "CommitMono Nerd Font Mono";
 	border: none;
 	border-radius: 0px;
-
 }
 
 tooltip {
@@ -55,7 +54,6 @@ window#waybar{
 }
 
 #window {
-	color: rgba(216,230,237,0.8);
 	background: rgba(27,27,27,0.6);
 	margin: 2px 3px 3px 3px;
 	padding: 0px 10px;
@@ -82,7 +80,7 @@ window#waybar.empty #window {
 	font-weight: normal;
 	font-style: normal;
 	opacity: 0.8;
-	color: rgba(216,230,237,0.8);
+	
 }
 #clock{
 	font-size: 16px;
@@ -91,7 +89,6 @@ window#waybar.empty #window {
 #network,
 #pulseaudio {
 	font-size: 24px;
-	color: rgba(216,230,237,0.8);
 }
 #group-pwr {
 	font-size: 24px;
@@ -120,7 +117,6 @@ window#waybar.empty #window {
 }
 #custom-firefox,
 #custom-filebrowser {
-	color: rgba(216,230,237,0.8);
 	margin: 0px 3px;
 }
 
