@@ -9,7 +9,7 @@ read -s varpw
 
 echo "$varpw" | sudo -S pacman -Syy
 
-echo "$varpw" | sudo -S pacman -S --noconfirm --needed fastfetch hyprlock hyprpaper nvim rofi waybar zsh nwg-look firefox nemo pulseaudio pavucontrol otf-commit-mono-nerd spotify-launcher python-gobject keepassxc swayidle alacritty
+echo "$varpw" | sudo -S pacman -S --noconfirm --needed fastfetch hyprlock hyprpaper nvim rofi waybar zsh nwg-look firefox nemo pulseaudio pavucontrol otf-commit-mono-nerd spotify-launcher python-gobject keepassxc swayidle alacrittyunzip noto-fonts noto-fonts-emoji noto-fonts-cjk
 
 
 RUNZSH=no CHSH=no KEEPZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
